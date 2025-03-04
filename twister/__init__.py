@@ -1,1 +1,1 @@
-from twister.connect import Test
+from twister.src.manager import Manager
