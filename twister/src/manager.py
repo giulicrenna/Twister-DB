@@ -8,6 +8,34 @@ from twister.src.register import Register
 from twister.src.logger import Logger
 from typing import Any
 
+"""
+TODO:
+# Database
+[X] Creation
+[] Deletion
+[] Update
+
+# Collection
+[X] Creation
+[] Deletion
+[] Modification
+
+# Registers
+[X] Creation
+[] Deletion
+[] Modification
+[X] All data retrieval
+[] Specific data retrieval
+[] Regex data retrieval
+[] Criteria data retrieval
+
+# Miscelaneous
+[] Data retrieval
+[] Data update
+[] Data deletion
+[] Connections
+"""
+
 class Manager:
     def __init__(self, DB_PATH: str = "data", file_name: str = "database.tw") -> None:
         """
@@ -55,23 +83,6 @@ class Manager:
         with open(f"{self.__DB_PATH__}/{self.__file_name__}", "rb") as file:
             self.__system__ = pickle.load(file)
         self.logger.debug("System loaded successfully.")
-
-    def __create_database__(self, database_name: str) -> None:
-        """
-        Create a new database and add it to the system.
-
-        Args:
-            database_name (str): Name of the new database.
-        """
-        self.logger.info(f"Creating new database with name: '{database_name}'")
-        new_database = DataBase(database_name=database_name)
-
-        self.__system__.__add_database__(new_database)
-        self.logger.debug(f"Database '{database_name}' added to system.")
-
-        self.__modify_system__(self.__system__)
-        self.logger.info("System updated after adding new database.")
-
 
     def __modify_system__(self, new_object: Any) -> None:
         """
@@ -184,3 +195,22 @@ class Manager:
                     break
                 
         return CollectionData(collection_name=collection_name, data=data)
+    
+    """
+    DATABASE ZONE
+    """
+    def __create_database__(self, database_name: str) -> None:
+        """
+        Create a new database and add it to the system.
+
+        Args:
+            database_name (str): Name of the new database.
+        """
+        self.logger.info(f"Creating new database with name: '{database_name}'")
+        new_database = DataBase(database_name=database_name)
+
+        self.__system__.__add_database__(new_database)
+        self.logger.debug(f"Database '{database_name}' added to system.")
+
+        self.__modify_system__(self.__system__)
+        self.logger.info("System updated after adding new database.")

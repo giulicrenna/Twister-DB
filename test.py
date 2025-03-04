@@ -150,3 +150,4 @@ if __name__ == "__main__":
 
     data_retrieve = manager.__get_collection_data__(database_name="users", collection_name="user_data")
     print(data_retrieve._data)
+    
