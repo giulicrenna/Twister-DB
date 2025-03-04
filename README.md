@@ -1,6 +1,6 @@
 # Twister DB
 
-![logo]('')
+![logo](https://github.com/giulicrenna/Twister-DB/blob/main/static/twister.png)
 
 A lightweight, local, and portable NoSQL database built with Python. Designed for fast and efficient storage, retrieval, and manipulation of structured data without the need for a traditional relational database system.
 
