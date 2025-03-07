@@ -31,3 +31,5 @@ class System:
     def __list_databases__(self) -> List[str]:
         return [db.database_name for db in self.__databases__.values()]
     
+    def __get_database__(self, name: str) -> DataBase:
+        ...
